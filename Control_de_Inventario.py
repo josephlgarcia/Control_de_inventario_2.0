@@ -32,7 +32,7 @@ def validacion_de_entrada(mensaje, tipo): # Función que valida la entrada de lo
                 else:
                     return entrada
         except ValueError:
-            print("\n¡Error! ⚠️. El Precio del producto y la cantidad deben ser números mayores a cero.")
+            print("\n¡Error! ⚠️. El Precio del producto (numero) y la cantidad (numero entero) deben ser mayores a cero.")
 
 
 def agregar_producto(nombre, precio, cantidad): # Función que agrega un producto al inventario, si el producto ya existe, no lo agrega y manda un mensaje amigable.
@@ -86,15 +86,16 @@ productos = [] # Lista vacía que almacena los productos, cada producto es un di
 
 
 opcion = " "
-while opcion != "6": # Ciclo while que se ejecuta hasta que el usuario ingresa la opción 6 para salir del programa.
+while opcion != "7": # Ciclo while que se ejecuta hasta que el usuario ingresa la opción 6 para salir del programa.
     
     # Menú de opciones
     print("\n1. Añadir producto 📦​")
     print("2. Consultar producto 🔎")
     print("3. Actualizar precio 💲")
     print("4. Eliminar producto 🗑️")
-    print("5. Calcular valor total del inventario 📋")
-    print("6. Salir 🏃🚪")
+    print("5. Calcular valor total del inventario 🤑")
+    print("6. Total de productos en el inventario 📋")
+    print("7. Salir 🏃🚪")
 
     opcion = input("\nIngrese una opción según la acción que desea realizar: ").strip()
 
@@ -132,14 +133,19 @@ while opcion != "6": # Ciclo while que se ejecuta hasta que el usuario ingresa l
             if not productos:
                 print("\nNo hay productos en el inventario aún. 😥​")
             else:
+                print(f"\nEl total del costo del inventario es: ${total_del_inventario():.2f}")
+
+        case "6": # Listado del total del inventario
+
+            if not productos:
+                print("\nNo hay productos en el inventario aún. 😥​")
+            else:
                 print(f"\n{"Nombre":<20} {"Precio":<20} {"Cantidad":<20}")
                 print("-" * 60)
                 for producto in productos:
                     print(f"{list(producto.keys())[0]:<20} {list(producto.values())[0][0]:<20.2f} {list(producto.values())[0][1]:<20}")
 
-                print(f"\nEl total del costo del inventario es: ${total_del_inventario():.2f}")
-
-        case "6": # Salir del programa
+        case "7": # Salir del programa
             print("\n✅ ​Gracias por usar nuesto sistema de control de inventario ✅​\n")
         case _: # En caso de que el usuario elija una opción que no está disponible, el programa muestra un mensaje amigable, indicándole su error.
             print("\n¡Error! ⚠️. Ingrese un número entre 1 y 6 segun la opción que desea")
