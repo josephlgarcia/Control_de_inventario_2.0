@@ -140,7 +140,7 @@ while opcion != "7": # Ciclo while que se ejecuta hasta que el usuario ingresa l
             if not productos:
                 print("\nNo hay productos en el inventario aún. 😥​")
             else:
-                print(f"\n{"Nombre":<20} {"Precio":<20} {"Cantidad":<20}")
+                print(f"\n{'Nombre':<20} {'Precio':<20} {'Cantidad':<20}")
                 print("-" * 60)
                 for producto in productos:
                     print(f"{list(producto.keys())[0]:<20} {list(producto.values())[0][0]:<20.2f} {list(producto.values())[0][1]:<20}")
